@@ -6,8 +6,8 @@ while True:
     if s == '0':
         break
     if s in ('+', '-', '*', '/'):
-        a = float(input("a = "))
-        b = float(input("b = "))
+        a = float(input("Izveleties pirmo skatli "))
+        b = float(input("Izveleties otro skatli "))
         if s == '+':
             print("%.2f" % (a + b))
         elif s == '-':
@@ -21,4 +21,3 @@ while True:
                 print("Деление на ноль!")
     else:
         print("Неверный знак операции!")
-
