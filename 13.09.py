@@ -1,38 +1,49 @@
 import PySimpleGUI as psg
 
-class Sastavdala():
-    #Konstruktora izveide
-    def __init__(self,veids,modelis,cena):
+class info():
+    def __init__(self,veids, modelis, cena):
         self.veids = veids
         self.modelis = modelis
-        self.cena= cena
-    #Datu izveda
+        self.cena = cena
+
     def apskate(self):
-        print(self.veids)
         print(self.modelis)
         print(self.cena)
-    #Datu labosana    
-    def labosana(self,veids,modelis,cena):
+        print(self.veids)
+
+    def laboshana(self, veids, modelis,cena):
         self.veids = veids
         self.modelis = modelis
-        self.cena= cena
-    #Datu saglabašana
-    def saglabat(self):
-        with open('sastavdalas.txt','w',encoding="utf-8") as fails:
-            fails.write(self.modelis)
-            fails.write("Veids",)
+        self.cena = cena
+    def saglabsana(self):
+        with open('info.txt','W', encoding="utf=8") as fails:
+            fails.write("-personala datora sastavdalas-\n")
+            fails.write(f"Veids: {self.veids}\n")
+            fails.write(f"modelis: {self.modelis}\n")
+            fails.write(f"Cena: {self.cena} EUR\n")
 
-jauns = Sastavdala("RAM","RAM Corsair Vengeance LPX 16GB", 99.99)
-
+jauns = info("RAM", 'Corsair Vengeance LPX 16GB',99.99)
 jauns.apskate()
-jauns.saglabat()
+jauns.saglabsana()
 
-psg.theme('DarkAmber')
+psg.theme('darkamber')
 layout = [
-    [psg.Text('Komponentes')]
-    [psg.Text('Veids')]
-    ]
+            [psg.Text('Komponentes')]
+            [psg.Text('Veids')]
+          
+          ]
 
+layout2 = [[psg.Text('Redigešana')]]
+
+tabgrp = [
+    psg.TabGroup(
+        [
+            [
+                psg.Tab('Datu ievade')
+            ]
+        ]
+    )
+]
 layout2 = [[psg.Text('Redegešana')]]
 
 loguGruppa = [
