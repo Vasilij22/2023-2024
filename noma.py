@@ -32,19 +32,19 @@ class info():
             fails.write("-Produktu informacija-\n")
             fails.write(f"Produkta_kategorija: {self.Produkta_kategorija}\n")
             fails.write(f"Produkta_nosaukums: {self.Produkta_nosaukums}\n")
-            fails.write(f"Tehniskie_raksturojumi: {self.Tehniskie_raksturojumi} EUR\n")
-            fails.write(f"Produkts_pieejams: {self.Produkts_pieejams} EUR\n")
+            fails.write(f"Tehniskie_raksturojumi: {self.Tehniskie_raksturojumi} \n")
+            fails.write(f"Produkts_pieejams: {self.Produkts_pieejams} \n")
 
     def saglabsana2(self):
         with open('Noma info.txt','w', encoding="utf=8") as fails:
             fails.write("-Nomas informacija-\n")
             fails.write(f"Nomnieks_vārds: {self.Nomnieks_vārds}\n")
             fails.write(f"Nomnieks_uzvārds: {self.Nomnieks_uzvārds}\n")
-            fails.write(f"Nomnieks_p_k: {self.Nomnieks_p_k} EUR\n")
-            fails.write(f"Nomnieks_tel_numurs: {self.Nomnieks_tel_numurs} EUR\n")
-            fails.write(f"Nomas_sākuma_datums: {self.Nomas_sākuma_datums} EUR\n")
-            fails.write(f"Nomas_beigu_datums: {self.Nomas_beigu_datums} EUR\n")
-            fails.write(f"Nomas_cena_dienā: {self.Nomas_cena_dienā} EUR\n")
+            fails.write(f"Nomnieks_p_k: {self.Nomnieks_p_k} \n")
+            fails.write(f"Nomnieks_tel_numurs: {self.Nomnieks_tel_numurs} \n")
+            fails.write(f"Nomas_sākuma_datums: {self.Nomas_sākuma_datums} \n")
+            fails.write(f"Nomas_beigu_datums: {self.Nomas_beigu_datums} \n")
+            fails.write(f"Nomas_cena_dienā: {self.Nomas_cena_dienā} \n")
 
 psg.theme('Dark blue')
 
@@ -66,7 +66,7 @@ logi2 = [
     [psg.Text('Nomas_sākuma_datums'), psg.InputText()],
     [psg.Text('Nomas_beigu_datums'), psg.InputText()],
     [psg.Text('Nomas_cena_dienā'), psg.InputText()],
-    [psg.Button('Saglabat')]
+    [psg.Button('Saglabat1')]
 ]
 
 logugruppa = [[
@@ -91,25 +91,34 @@ while True:
         Produkta_kategorija = values[0]
         Produkta_nosaukums = values[1]
         Tehniskie_raksturojumi = values[2]
-        Produkts_pieejams = values[4]
-        jauns = info(Produkta_kategorija,Produkta_nosaukums,Tehniskie_raksturojumi,Produkts_pieejams)
+        Produkts_pieejams = values[3]
+        Nomas_cena_dienā = values[4]
+        Nomnieks_vārds = values[5]
+        Nomnieks_uzvārds = values[6]
+        Nomnieks_p_k = values[7]
+        Nomnieks_tel_numurs = values[8]
+        Nomas_sākuma_datums = values[9]
+        Nomas_beigu_datums = values[10]
+        jauns = info(Produkta_kategorija,Produkta_nosaukums,Tehniskie_raksturojumi,Nomas_cena_dienā,Produkts_pieejams,Nomnieks_vārds,Nomnieks_uzvārds,Nomnieks_p_k,Nomnieks_tel_numurs,Nomas_sākuma_datums,Nomas_beigu_datums)
         jauns.saglabsana1()
 
-    if event == 'Saglabat':
+    if event == 'Saglabat1':
         print(values)
-        Nomas_cena_dienā = values[5]
-        Produkts_pieejams = values[6]
-        Nomnieks_vārds = values[7]
-        Nomnieks_uzvārds = values[8]
-        Nomnieks_p_k = values[9]
-        Nomnieks_tel_numurs = values[10]
-        Nomas_sākuma_datums = values[10]
-        Nomas_beigu_datums = values[11]
-        jauns = info(Nomas_cena_dienā,Nomnieks_vārds,Nomnieks_uzvārds,Nomnieks_p_k,Nomnieks_tel_numurs,Nomas_sākuma_datums,Nomas_beigu_datums)
+        Produkta_kategorija = values[0]
+        Produkta_nosaukums = values[1]
+        Tehniskie_raksturojumi = values[2]
+        Produkts_pieejams = values[3]
+        Nomas_cena_dienā = values[4]
+        Nomnieks_vārds = values[5]
+        Nomnieks_uzvārds = values[6]
+        Nomnieks_p_k = values[7]
+        Nomnieks_tel_numurs = values[8]
+        Nomas_sākuma_datums = values[9]
+        Nomas_beigu_datums = values[10]
+        jauns = info(Produkta_kategorija,Produkta_nosaukums,Tehniskie_raksturojumi,Nomas_cena_dienā,Produkts_pieejams,Nomnieks_vārds,Nomnieks_uzvārds,Nomnieks_p_k,Nomnieks_tel_numurs,Nomas_sākuma_datums,Nomas_beigu_datums)
         jauns.saglabsana2()
 
     if event == psg.WIN_CLOSED or event  == 'Close':
         break
-    print('Yoi in', values[0])
 
 window.close
