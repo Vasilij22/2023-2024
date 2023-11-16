@@ -1,12 +1,11 @@
 import requests
-import json
 
 URL = "https://api.coindesk.com/v1/bpi/currentprice.json"
 
-atbilde = requests.get(URL)
+bitcoin = requests.get(URL)
+print(bitcoin.json())
+cena = bitcoin.json()['bpi']['USD']['rate_float']
 
-print(atbilde)
+input = float(input('ievadi cik gribi kupit: '))
 
-dati = atbilde.json()
-
-print(json.dumps(dati,indent=2))
+print(cena * input)
